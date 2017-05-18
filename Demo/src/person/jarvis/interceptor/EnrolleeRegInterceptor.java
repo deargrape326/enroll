@@ -21,8 +21,9 @@ public class EnrolleeRegInterceptor implements HandlerInterceptor {
 	}
 
 	@Override
-	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
-		System.out.println(arg0.getParameter("name"));
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object obj) throws Exception {
+		System.out.println(request.getParameter("enrollee"));
+		System.out.println(request.getParameter("name"));
 		System.out.println("拦截");
 		return true;
 	}

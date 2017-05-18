@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/jsp/department.jsp=UTF-8
+encoding//WebContent/WEB-INF/jsp/job.jsp=UTF-8
 encoding//WebContent/WEB-INF/jsp/reg.jsp=UTF-8
+encoding//src/person/jarvis/utils/CommonUtils.java=UTF-8
+encoding/<project>=UTF-8

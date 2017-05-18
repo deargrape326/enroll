@@ -23,5 +23,4 @@ public class EnrolleeServiceImpl implements EnrolleeService {
 		enrollee.setTime(new Date());
 		return enrolleeDao.addEnrollee(enrollee);
 	}
-
 }
