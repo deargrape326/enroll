@@ -23,11 +23,21 @@ public class Enrollee {
 		return "Enrollee[id=" + id + ", guid=" + guid + ", name=" + name + ", province=" + province + ", city=" + city + ", county=" + county
 				+ ", town=" + town + ", village=" + village + ", address=" + address + ", tel=" + tel + ", school" + school + ", time=" + time + "]";
 	}
-	
+
 	public boolean isComplete() {
 		return CommonUtils.isEmpty(name) ? false : CommonUtils.isEmpty(province) ? false : CommonUtils.isEmpty(city) ? false : CommonUtils
 				.isEmpty(county) ? false : CommonUtils.isEmpty(address) ? false : CommonUtils.isEmpty(tel) ? false
 				: CommonUtils.isEmpty(school) ? false : true;
+	}
+
+	public boolean isValid() {
+		if (isComplete()) {
+			return name.length() < 8 ? false : province.length() < 12 ? false : city.length() < 12 ? false : county.length() < 12 ? false : town
+					.length() < 12 ? false : village.length() < 12 ? false : address.length() < 36 ? false : tel.length() < 18 ? false : school
+					.length() < 24 ? false : true;
+		} else {
+			return false;
+		}
 	}
 
 	public Integer getId() {

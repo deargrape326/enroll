@@ -1,4 +1,4 @@
-var root = window.location.href;
+var path = getRootPath()
 
 var Enrollee = {
 	create : function() {
@@ -17,6 +17,7 @@ var Enrollee = {
 };
 
 $(function() {
+	initTip();
 	$("input").val('');
 	$('#registerInfo').attr('disabled','disabled');
 	
@@ -32,7 +33,7 @@ $(function() {
 		enrollee.tel = $("#inputTel").val();
 		enrollee.school = $("#inputSchool").val();
 		$.ajax({
-			url : root + "enrollee/add",
+			url : path + "/enrollee/add",
 			type : "post",
 			async : true,
 			data : {
@@ -126,9 +127,11 @@ $(function() {
 function processSuccess(data) {
 	var code = data.code;
 	if (code == 0) {
+		alert(1);
 		ShowSuccess("登记成功");
 		$("input").val('');
 		initProvinceSelect();
+		window.location.href = path + "/redirect/jsp?to=" + "main";
 	}
 }
 
@@ -154,4 +157,13 @@ function checkTelNum(tel){
     } else {
     	return false;
     }
+}
+
+function initTip(){
+	var $tip = $('#tip');
+	if ($tip.length == 0) {
+		$tip = $('<span id="tip" style="font-size:18px;font-weight:bold;position:absolute;top:20px;left:80%;z-index:9999;min-width:300px;text-align:left;"></span>');
+		$('body').append($tip);
+	}
+	$tip.stop(true).attr('class', 'alert alert-info').text("*所在地的乡镇和村可以不用填写，请在住址里面补充尽可能完整的地址").css('margin-left', -$tip.outerWidth() / 2)
 }
