@@ -22,6 +22,6 @@ $(function() {
 	
 })
 
-function redirectTo(to){
+function redirectTo(to, obj){
 	window.location.href = "/redirect/jsp?to=" + to;
 }

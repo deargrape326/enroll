@@ -19,8 +19,8 @@ var Enrollee = {
 $(function() {
 	initTip();
 	$("input").val('');
-	$('#registerInfo').attr('disabled','disabled');
-	
+	$('#registerInfo').attr('disabled', 'disabled');
+
 	$("#registerInfo").click(function() {
 		var enrollee = Enrollee.create();
 		enrollee.name = $("#inputName").val();
@@ -33,7 +33,7 @@ $(function() {
 		enrollee.tel = $("#inputTel").val();
 		enrollee.school = $("#inputSchool").val();
 		$.ajax({
-			url : path + "/enrollee/add",
+			url : "/enrollee/add",
 			type : "post",
 			async : true,
 			data : {
@@ -55,11 +55,12 @@ $(function() {
 			}
 		})
 	})
-	
 
 	$("#inputName").bind('input propertychange blur', function() {
 		if ($(this).val().trim() == '') {
 			$("#validateName").text("* 不能为空");
+		} else if ($(this).val().trim().length > 8){
+			$("#validateName").text("* 输入过长");
 		} else {
 			$("#validateName").text("*");
 		}
@@ -74,7 +75,7 @@ $(function() {
 		}
 		validataEnrollee();
 	})
-	
+
 	$("#citySelect").change(function() {
 		if ($(this).val() == '') {
 			$("#validateCity").text("* 不能为空");
@@ -83,7 +84,7 @@ $(function() {
 		}
 		validataEnrollee();
 	})
-		
+
 	$("#countySelect").change(function() {
 		if ($(this).val() == '') {
 			$("#validateCounty").text("* 不能为空");
@@ -92,7 +93,7 @@ $(function() {
 		}
 		validataEnrollee();
 	})
-	
+
 	$("#inputAddress").bind('input propertychange blur', function() {
 		if ($(this).val().trim() == '') {
 			$("#validateAddress").text("* 不能为空");
@@ -101,7 +102,6 @@ $(function() {
 		}
 		validataEnrollee();
 	})
-	
 
 	$("#inputTel").bind('input propertychange blur', function() {
 		if ($(this).val().trim() == '') {
@@ -113,7 +113,7 @@ $(function() {
 		}
 		validataEnrollee();
 	})
-	
+
 	$("#inputSchool").bind('input propertychange blur', function() {
 		if ($(this).val().trim() == '') {
 			$("#validateSchool").text("* 不能为空");
@@ -127,11 +127,10 @@ $(function() {
 function processSuccess(data) {
 	var code = data.code;
 	if (code == 0) {
-		alert(1);
 		ShowSuccess("登记成功");
 		$("input").val('');
 		initProvinceSelect();
-		window.location.href = path + "/redirect/jsp?to=" + "main";
+		window.location.href = "/redirect/jsp?to=" + "main";
 	}
 }
 
@@ -143,23 +142,22 @@ function validataEnrollee() {
 	var address = $("#inputAddress").val();
 	var tel = $("#inputTel").val();
 	var school = $("#inputSchool").val();
-	if (name.trim() == '' || province == '' || city == '' || county == ''
-			|| address.trim() == '' || tel.trim() == '' || school.trim() == '') {
+	if (name.trim() == '' || name.trim().length > 8 || province == '' || city == '' || county == '' || address.trim() == '' || tel.trim() == '' || school.trim() == '') {
 		$("#registerInfo").attr('disabled', 'disabled');
 	} else {
 		$("#registerInfo").removeAttr('disabled');
 	}
 }
 
-function checkTelNum(tel){
-	if((/^1[34578]\d{9}$/.test(tel))){ 
-        return true; 
-    } else {
-    	return false;
-    }
+function checkTelNum(tel) {
+	if (/^1[34578]\d{9}$/.test(tel) || /^0\d{2,3}-?\d{7,8}$/.test(tel)) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
-function initTip(){
+function initTip() {
 	var $tip = $('#tip');
 	if ($tip.length == 0) {
 		$tip = $('<span id="tip" style="font-size:18px;font-weight:bold;position:absolute;top:20px;left:80%;z-index:9999;min-width:300px;text-align:left;"></span>');

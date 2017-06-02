@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+p.parag{font-size:16px;font-family:宋体;text-indent:2em;}
+p.title{font-size:16px;font-family:宋体;text-indent:0em;}
+h2.department{color:Red;display:inline}
+h4{display:inline;font-family:楷体}
+span.title{font-family:黑体;color:Blue;font-weight:bold;}
