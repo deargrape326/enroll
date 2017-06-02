@@ -4,19 +4,22 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
+<%@ taglib prefix="tg" tagdir="/WEB-INF/tags"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title登记</title>
+<title>登记</title>
 <script src="<%=basePath%>/js/jquery-3.1.1.min.js"></script>
 <script src="<%=basePath%>/js/bootstrap.js"></script>
 <script src="<%=basePath%>/js/common.js"></script>
 <script src="<%=basePath%>/js/redirect.js"></script>
 <script src="<%=basePath%>/js/address.js"></script>
 <script src="<%=basePath%>/js/enrollee.js"></script>
+<script src="<%=basePath%>/js/ie10-viewport-bug-workaround.js"></script>
 <link href="<%=basePath%>/css/bootstrap.min.css" rel="stylesheet">
 <link href="<%=basePath%>/css/bootstrap-theme.min.css" rel="stylesheet">
 <link href="<%=basePath%>/css/enroll.css" rel="stylesheet">
+<link href="<%=basePath%>/favicon.ico" rel="icon" type="image/x-icon">
 </head>
 
 <body>
@@ -31,7 +34,7 @@
 						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Project name</a>
+					<a class="navbar-brand">华夏旅游商校</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
@@ -112,7 +115,7 @@
 				<div class="col-sm-6">
 					<input type="text" class="form-control" id="inputTel" placeholder="联系电话">
 				</div>
-				<label class="col-sm-3 required" id="validateTel">*不多于18个字</label>
+				<label class="col-sm-3 required" id="validateTel">*不多于18个字，座机或手机号码</label>
 			</div>
 			<div class="form-group">
 				<label for="inputSchool" class="col-sm-3 control-label">毕业学校</label>
@@ -128,7 +131,8 @@
 				</div>
 			</div>
 		</form>
-
+	
+		<tg:footer/>
 	</div>	<!-- /container -->
 </body>
 </html>

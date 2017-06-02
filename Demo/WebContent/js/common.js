@@ -1,3 +1,5 @@
+
+
 //tip是提示信息，type:'success'是成功信息，'danger'是失败信息,'info'是普通信息
 function ShowTip(tip, type) {
 	var $tip = $('#tip');
@@ -5,7 +7,7 @@ function ShowTip(tip, type) {
 		$tip = $('<span id="tip" style="font-size:18px;font-weight:bold;position:absolute;top:20px;left:80%;z-index:9999;min-width:300px;text-align:left;"></span>');
 		$('body').append($tip);
 	}
-	$tip.stop(true).attr('class', 'alert alert-' + type).text(tip).css('margin-left', -$tip.outerWidth() / 2).fadeIn("fast").delay(1500).fadeOut(500);
+	$tip.stop(true).attr('class', 'alert alert-' + type).text(tip).css('margin-left', -$tip.outerWidth() / 2).fadeIn("middle").delay(1500).fadeOut(500);
 }
 
 function ShowMsg(msg) {

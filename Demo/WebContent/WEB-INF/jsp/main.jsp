@@ -4,6 +4,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
+<%@ taglib prefix="tg" tagdir="/WEB-INF/tags"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,8 +13,10 @@
 <script src="<%=basePath%>/js/bootstrap.js"></script>
 <script src="<%=basePath%>/js/common.js"></script>
 <script src="<%=basePath%>/js/redirect.js"></script>
+<script src="<%=basePath%>/js/ie10-viewport-bug-workaround.js"></script>
 <link href="<%=basePath%>/css/bootstrap.min.css" rel="stylesheet">
 <link href="<%=basePath%>/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="<%=basePath%>/favicon.ico" rel="icon" type="image/x-icon">
 </head>
 
 <body>
@@ -28,7 +31,7 @@
 						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Project name</a>
+					<a class="navbar-brand">华夏旅游商校</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
@@ -94,11 +97,6 @@
 	</div>
 	<!-- /.carousel -->
 
-
-	<!-- Marketing messaging and featurettes
-    ================================================== -->
-	<!-- Wrap the rest of the page in another container to center all the content. -->
-
 	<div class="container marketing">
 
 		<!-- Three columns of text below the carousel -->
@@ -110,7 +108,6 @@
 				<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies
 					vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">查看详情 &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -121,7 +118,6 @@
 				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
 					consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">查看详情 &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -133,7 +129,6 @@
 					felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
 					justo sit amet risus.</p>
 				<p>
-					<a class="btn btn-default" href="#" role="button">查看详情 &raquo;</a>
 				</p>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -149,9 +144,9 @@
 		<div class="row featurette">
 			<div class="col-md-6">
 				<br><br><br>
-				<h2 class="featurette-heading">
-					学习成果 <span class="text-muted" style="font-size:22px">手工作品</span>
-				</h2>
+				<h1 class="featurette-heading">
+					<br/><br/><br/>学习成果 <span class="text-muted" style="font-size:25px">手工作品</span>
+				</h1>
 				<p class="lead"></p>
 			</div>
 			<div class="col-md-6">
@@ -173,17 +168,16 @@
 		<!-- FEATURETTE 2 -->
 
 		<hr class="featurette-divider">
-		<hr class="featurette-divider">
 
 		<div class="row featurette">
 			<div class="col-md-6">
-				<img class="featurette-image img-responsive" src="<%=basePath%>/image/paint1.jpg" alt="Generic placeholder image">
+				<h1 class="featurette-heading">
+					<br/><br/><br/>学习成果 <span class="text-muted" style="font-size:25px">绘画作品</span>
+				</h1>
+				<p class="lead"></p>
 			</div>
 			<div class="col-md-6">
-				<h2 class="featurette-heading">
-					学习成果 <span class="text-muted" style="font-size:22px">绘画作品</span>
-				</h2>
-				<p class="lead"></p>
+				<img class="featurette-image img-responsive" src="<%=basePath%>/image/paint1.jpg" alt="Generic placeholder image">
 			</div>
 		</div><hr class="featurette-divider">
 
@@ -199,22 +193,21 @@
 		<!-- FEATURETTE 3 -->
 		
 		<hr class="featurette-divider">
-		<hr class="featurette-divider">
 
 		<div class="row featurette">
-			<div class="col-md-6">
+			<div class="col-md-6 col-xs-6">
 				<h2 class="featurette-heading">
 					And lastly, this one. <span class="text-muted">Checkmate.</span>
 				</h2>
 				<p class="lead"></p>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 col-xs-6">
 				<img class="featurette-image img-responsive" src="<%=basePath%>/image/103.jpg" alt="Generic placeholder image">
 			</div>
 		</div><hr class="featurette-divider">
 
 		<div class="row featurette">
-			<div class="col-md-6">
+			<div class="col-md-6 col-xs-6">
 				<img class="featurette-image img-responsive" src="<%=basePath%>/image/103.jpg" alt="Generic placeholder image">
 			</div>
 			<div class="col-md-6">
@@ -228,13 +221,13 @@
 
 		<div class="row featurette">
 			<div class="col-md-6">
-				<img class="featurette-image img-responsive" src="<%=basePath%>/image/103.jpg" alt="Generic placeholder image">
-			</div>
-			<div class="col-md-6">
 				<h2 class="featurette-heading">
 					And lastly, this one. <span class="text-muted">Checkmate.</span>
 				</h2>
 				<p class="lead"></p>
+			</div>
+			<div class="col-md-6">
+				<img class="featurette-image img-responsive" src="<%=basePath%>/image/103.jpg" alt="Generic placeholder image">
 			</div>
 		</div><hr class="featurette-divider">
 
@@ -253,15 +246,7 @@
 
 
 		<!-- FOOTER -->
-		<footer>
-		<p class="pull-right">
-			<a href="#">返回页顶</a>
-		</p>
-		<p>
-			&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-		</p>
-		</footer>
-
+		<tg:footer/>
 	</div>
 	<!-- /.container -->
 </body>

@@ -13,7 +13,6 @@
 	<mvc:default-servlet-handler />
 	<!-- 默认扫描的包路径 -->
 	<context:component-scan base-package="person.jarvis.controller,person.jarvis.service.impl" />
-	<context:component-scan base-package="person.jarvis.service" />
 	<!-- 添加注解驱动 -->
 	<mvc:annotation-driven />
 	<!-- 定义跳转的文件的前后缀 -->
@@ -27,9 +26,9 @@
 		<property name="dataSource">
 			<bean class="person.jarvis.datasourcefix.FixedBasicDataSource">
 				<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/enroll?characterEncoding=utf-8&amp;useSSL=false" />
+				<property name="url" value="jdbc:mysql://rm-wz9ghi56tw98ro422o.mysql.rds.aliyuncs.com:3306/enroll?characterEncoding=utf-8&amp;useSSL=false&amp;autoReconnect=true" />
 				<property name="username" value="root" />
-				<property name="password" value="root" />
+				<property name="password" value="Xhh2*4=8" />
 			</bean>
 		</property>
 	</bean>

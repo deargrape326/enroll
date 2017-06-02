@@ -48,5 +48,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/standard-1.1.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpcore-4.4.6.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
