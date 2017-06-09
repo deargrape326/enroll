@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -16,24 +17,27 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentMap;
+
+import net.sf.json.JSONObject;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpParams;
 
 import person.jarvis.utils.CommonUtils;
 
@@ -113,30 +117,91 @@ public class Test {
 		// System.out.println(date1);
 		// System.out.println(date2);
 
-		CloseableHttpClient http = HttpClients.createDefault();
-		HttpPost post = new HttpPost("http://www.linkedsee.com/alarm/custom");
-		
-		List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
-		params.add(new BasicNameValuePair("content", "测试"));
+//		CloseableHttpClient http = HttpClients.createDefault();
+//		HttpPost post = new HttpPost("http://www.linkedsee.com/alarm/custom");
+//
+//		JSONObject jsonParams = new JSONObject();
+//		jsonParams.put("content", "test");
+//		
+//		StringEntity entity = new StringEntity(jsonParams.toString(), "UTF-8");
+//		entity.setContentEncoding("UTF-8");    
+//        entity.setContentType("application/json");
+//        post.setEntity(entity);
+//		post.setHeader("Servicetoken", "f2e808c2078c00f34b294e69bcbfd713");
+//		try {
+//			HttpResponse response = http.execute(post);
+//			InputStream input = response.getEntity().getContent();
+//			System.out.println(response.getStatusLine().getStatusCode());
+//			BufferedReader reader = new BufferedReader(new InputStreamReader(input,"utf-8"));
+//			StringBuffer sb = new StringBuffer();
+//			String line = null;
+//			while((line = reader.readLine()) != null)
+//				sb.append(line + "\n");
+//			input.close();
+//            System.out.println(sb.toString());   
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		
+//		A a = new A();
+//		ArrayList<String> list1 = new ArrayList<String>();
+//		list1.add("s");
+//		list1.add("t");
+//		a.setAs(list1);
+//		List<String> list2 = new ArrayList<String>();
+//		list2.addAll(list1);
+//		list2.add("rt");
+//		a.setBs(list2);
+//		JSONObject obj = JSONObject.fromObject(a);
+//		System.out.println(obj.toString());
 
-		post.setEntity(new UrlEncodedFormEntity(params));
-		post.addHeader("Servicetoken", "f2e808c2078c00f34b294e69bcbfd713");
-		try {
-			HttpResponse response = http.execute(post);
-			InputStream input = response.getEntity().getContent();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(input,"utf-8"));
-			StringBuffer sb = new StringBuffer();
-			String line = null;
-			while((line = reader.readLine()) != null)
-				sb.append(line + "\n");
-			input.close();
-            System.out.println(sb.toString());   
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+//		try {
+//			URL url = null;
+//			InputStream in = null;
+//			OutputStreamWriter writer = null;
+//			URLConnection conn = null;
+//
+//			url = new URL("http://www.linkedsee.com/alarm/custom");
+//			conn = url.openConnection();
+//
+//			conn.setConnectTimeout(2000);
+//			conn.setReadTimeout(3000);
+//			conn.setDoOutput(true);
+//			conn.setDoInput(true);
+//			conn.setRequestProperty("content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+//			writer = new OutputStreamWriter(conn.getOutputStream());
+//
+//			writer.write("");
+//			writer.flush();
+//
+//			in = conn.getInputStream();
+//			StringBuilder sb = new StringBuilder();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+//		System.out.println(200 == null);
 	}
 
 	public Map<String, Object> queryStatus(Boolean power, Integer channel, Double frequency, String mode, Integer outputLevel, Boolean ptt) {
 		return null;
+	}
+
+	public static class A{
+		private List<String> as;
+		private List<String> bs;
+		public List<String> getAs() {
+			return as;
+		}
+		public void setAs(List<String> as) {
+			this.as = as;
+		}
+		public List<String> getBs() {
+			return bs;
+		}
+		public void setBs(List<String> bs) {
+			this.bs = bs;
+		}
 	}
 }
